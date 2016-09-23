@@ -28,7 +28,7 @@ var plumberErrorHandler = {
 
 //styles
 gulp.task('styles',function() {
-  returngulp.src(['sass/*.scss'])
+  return gulp.src(['sass/*.scss'])
   .pipe(plumber(plumberErrorHandler))
   .pipe(compass({
     config_file:'config.rb',
@@ -45,7 +45,7 @@ gulp.task('styles',function() {
 
 //scripts
 gulp.task('scripts',function() {
-  returngulp.src('js/*.js')
+  return gulp.src('js/*.js')
   .pipe(plumber(plumberErrorHandler))
   .pipe(concat('main.js'))
   .pipe(gulp.dest('js'))
