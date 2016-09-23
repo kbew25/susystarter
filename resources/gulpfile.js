@@ -1,8 +1,8 @@
 //load plugins
 var gulp = require('gulp'),
-compass = require('gulp-compass'),
+//compass = require('gulp-compass'),
 autoprefixer = require('gulp-autoprefixer'),
-minifycss = require('gulp-minify-css'),
+cleanCSS = require('gulp-clean-css'),
 uglify = require('gulp-uglify'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
@@ -30,16 +30,15 @@ var plumberErrorHandler = {
 gulp.task('styles',function() {
   return gulp.src(['sass/*.scss'])
   .pipe(plumber(plumberErrorHandler))
-  .pipe(compass({
-    config_file:'config.rb',
-    css:'stylesheets',
-    sass:'sass',
-  }))
+  // .pipe(compass({
+  //   config_file:'config.rb',
+  //   css:'stylesheets',
+  //   sass:'sass',
+  // }));
   .pipe(autoprefixer('last 2 version','safari 5','ie 7','ie 8','ie 9','opera 12.1','ios 6','android 4'))
+  .pipe(cleanCSS())
   .pipe(gulp.dest('stylesheets'))
   //.pipe(rename({ suffix: '.min' }))
-  //.pipe(minifycss())
-  //.pipe(gulp.dest('css'))
   .pipe(livereload());
 });
 
@@ -48,10 +47,9 @@ gulp.task('scripts',function() {
   return gulp.src('js/*.js')
   .pipe(plumber(plumberErrorHandler))
   .pipe(concat('main.js'))
-  .pipe(gulp.dest('js'))
   //.pipe(rename({ suffix: '.min' }))
   //.pipe(uglify())
-  //.pipe(gulp.dest('js'))
+  .pipe(gulp.dest('js'));
 });
 
 //watch
