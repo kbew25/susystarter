@@ -9,5 +9,8 @@ sudo gem install -n /usr/local/bin susy
 sudo gem install -n /usr/local/bin breakpoint
 </pre>
 
-If using only compass:
-- $ compass watch
+If using compass:
+- <pre>compass watch</pre>
+
+If using gulp:
+- <pre></pre>
