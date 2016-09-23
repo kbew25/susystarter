@@ -3,5 +3,5 @@
 **/.sass-cache
 **/.DS_Store
 
-package.json
-gulpfile.js
+/package.json
+/gulpfile.js
