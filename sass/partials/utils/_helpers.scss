@@ -1,3 +1,119 @@
-/**
-* _helpers.scss
-*/
+// ----------------------------------------------
+//                  Helpers
+// ----------------------------------------------
+
+// Padding
+.island {
+  padding-top: $island-top;
+  padding-bottom: $island-bottom;
+}
+
+.island-top {
+  padding-top: $island-top;
+}
+
+.island-top-half {
+  padding-top: $island-top / 2;
+}
+
+.island-bottom {
+  padding-bottom: $island-bottom;
+}
+
+.island-bottom-half {
+  padding-bottom: $island-bottom / 2;
+}
+
+.island-half {
+  padding-top: $island-top / 2;
+  padding-bottom: $island-bottom / 2;
+}
+
+// Margin
+.island-margin {
+  margin-top: $island-top;
+  margin-bottom: $island-bottom;
+}
+
+.island-top-margin {
+  margin-top: $island-top;
+}
+
+.island-top-margin-half {
+  margin-top: $island-top / 2;
+}
+
+.island-half-margin {
+  margin-top: $island-top / 2;
+  margin-bottom: $island-bottom / 2;
+}
+
+.island-bottom-margin {
+  margin-bottom: $island-bottom;
+}
+
+.island-bottom-margin-half {
+  margin-bottom: $island-bottom / 2;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+// HTML grid classes
+.grid-4, .grid-3, .grid-2,
+.gallery-4, .gallery-3, .gallery-2 {
+  @extend %clearfix;
+  .grid-item {
+    @extend %clearfix;
+  }
+}
+
+@include susy-breakpoint($bp-small $bp-medium - 1, $susy) {
+  .gallery-4,
+  .gallery-3 {
+    .grid-item  {
+      @include gallery(6);
+      clear: none !important;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+
+@include susy-breakpoint($bp-medium, $large) {
+  .grid-2 .grid-item {
+    @include span(6);
+    &:nth-child(even) {
+      @include span(6 last);
+    }
+  }
+  .grid-3 .grid-item {
+    @include span(4);
+    &:nth-child(3n + 3) {
+      @include span(4 last);
+    }
+  }
+  .grid-4 .grid-item {
+    @include span(3);
+    &:nth-child(4n + 4) {
+      @include span(3 last);
+    }
+  }
+}
+
+@include susy-breakpoint($bp-medium, $susy) {
+  .gallery-2 .grid-item {
+    @include gallery(6);
+  }
+  .gallery-3 .grid-item {
+    @include gallery(4);
+  }
+  .gallery-4 .grid-item {
+    @include gallery(3);
+  }
+}

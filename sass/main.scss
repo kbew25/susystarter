@@ -4,6 +4,8 @@
 
 @import "susy";
 
+@import "partials/base/reset";
+
 // ---- Layout & Grid settings ----------------------
 //  This uses Susy as the layout system.
 //  Full Susy docs can be found at:
@@ -16,19 +18,21 @@
 @import "partials/utils/vars";
 
 // 2 ( Theme's default mixins )
-@import "partials/themes/mixins";
+@import "partials/base/mixins";
 
 // 3 ( Defines grid layout )
 @import "partials/layout/grid";
 
 // 4 ( Theme's default from vars )
-@import "partials/themes/defaults";
+@import "partials/base/defaults";
 
 // 5 ( Theme's default layout )
-@import "partials/themes/layout";
+@import "partials/base/layout";
 
 
 //* ----- Partials - ( Custom ) ----- */
+
+@import "partials/utils/helpers";
 
 /* -- Default Styles -- */
 @import "partials/utils/global";

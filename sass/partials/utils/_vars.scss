@@ -56,7 +56,7 @@ $headings-font-weight:  500; // null
 $line-height:           1.2; // null
 $font-smoothing:        auto; // [antialiased|auto|none|subpixel-antialiased]
 
-$font-size-h1:          em($font-size + 4); // 20px
+$font-size-h1:          em($font-size + 6); // 22px
 $font-size-h2:          em($font-size + 4); // 20px
 $font-size-h3:          em($font-size + 2); // 18px
 $font-size-h4:          em($font-size);
@@ -80,5 +80,10 @@ $button-border-radius:  null; // null
 
 $text-border-radius:    null; // null
 $text-input-width:      100%; // null
-$text-input-padding:    8px; // null
+$text-input-padding:    em(12px); // null
 $label-inline:          false; // [true|false]
+
+//* -----  Helpers  ----- */
+
+$island-top:            1em;
+$island-bottom:         1em;
