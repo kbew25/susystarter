@@ -1,0 +1,103 @@
+// ----------------------------------------------
+//                Grid Settings
+//
+//  This uses Susy as the layout system.
+//  Full Susy docs can be found at:
+//  http://susydocs.oddbird.net/
+// ----------------------------------------------
+//**                Can Edit
+
+// Default
+$susy: (
+  columns: 12,
+  gutters: 0,
+  flow: ltr,
+  global-box-sizing: border-box,
+  container: $container-size, // change in vars
+);
+
+// Above $bp-medium breakpoint
+$medium: (
+  columns: 12,
+  gutters: .8,
+  sidebarfirst: 1, // in columns if not using custom layouts
+  sidebarsecond: 4, // in columns if not using custom layouts
+);
+
+// Above $bp-large breakpoint
+$large: (
+  flow: ltr,
+  columns: 12,
+  gutters: 1,
+  sidebarfirst: 3, // in columns if not using custom layouts
+  sidebarsecond: 4, // in columns if not using custom layouts
+);
+
+#page {
+  @include container;
+  clear: both;
+}
+
+// HTML grid classes
+.grid-4, .grid-3, .grid-2,
+.gallery-4, .gallery-3, .gallery-2 {
+  @extend %clearfix;
+  .view-content {
+    @extend %clearfix;
+  }
+}
+
+@include susy-breakpoint(375px $bp-medium - 1, $medium) {
+  .grid-3.view-jobs .grid-item,
+  .grid-4 .grid-item {
+    @include span(6);
+    &:nth-child(even) {
+      @include span(6 last);
+    }
+  }
+}
+
+@include susy-breakpoint(375px $bp-medium - 1, $susy) {
+  .gallery-4,
+  .gallery-3 {
+    .grid-item  {
+      @include gallery(6);
+      clear: none !important;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+
+@include susy-breakpoint($bp-medium, $large) {
+  .grid-2 .grid-item {
+    @include span(6);
+    &:nth-child(even) {
+      @include span(6 last);
+    }
+  }
+  .grid-3 .grid-item {
+    @include span(4);
+    &:nth-child(3n + 3) {
+      @include span(4 last);
+    }
+  }
+  .grid-4 .grid-item {
+    @include span(3);
+    &:nth-child(4n + 4) {
+      @include span(3 last);
+    }
+  }
+}
+
+@include susy-breakpoint($bp-medium, $susy) {
+  .gallery-2 .grid-item {
+    @include gallery(6);
+  }
+  .gallery-3 .grid-item {
+    @include gallery(4);
+  }
+  .gallery-4 .grid-item {
+    @include gallery(3);
+  }
+}

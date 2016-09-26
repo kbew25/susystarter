@@ -1,0 +1,84 @@
+// ----------------------------------------------
+//                  Vars
+// ----------------------------------------------
+//**              Can Edit
+
+//**  Where null is stated means it can be set as null to unset them.
+
+//* -----  General  ----- */
+
+$font-size: 16px;
+
+// Turn px to em
+@function em($target, $context: $font-size ) {
+  @return ($target / $context) * 1em;
+}
+
+//* -----  Breakpoints  ----- */
+
+$bp-mobile-only:        0 480px;
+$bp-small:              481px;
+$bp-medium:             768px;
+$bp-large:              960px;
+
+//* -----  Page Size  ----- */
+
+$container-size:        1060px; // null
+
+//* -----  Colors  ----- */
+
+$brand-green:           #388E3C;
+
+$brand-primary:         $brand-green;
+$brand-secondary:       white;
+
+$brand-success:         #78BC6F; // green
+$brand-info:            #29B6F6; // blue
+$brand-warning:         #e09600; // orange
+$brand-danger:          #e62600; // red
+
+$black:                 #000;
+$gray-dark:             lighten($black, 20); // #333
+$gray:                  lighten($black, 40); // #666
+$gray-light:            #e4e4e6;
+$gray-lighter:          lighten($black, 80); // #ccc
+
+//* -----  Typography  ----- */
+
+$font-sans:             sans-serif;
+$font-serif:            serif;
+$font-weight:           300; // null
+
+$base-font:             $font-sans; // null
+$headings-font:         sans-serif; // null
+$headings-font-weight:  500; // null
+
+$line-height:           1.2; // null
+$font-smoothing:        auto; // [antialiased|auto|none|subpixel-antialiased]
+
+$font-size-h1:          em($font-size + 4); // 20px
+$font-size-h2:          em($font-size + 4); // 20px
+$font-size-h3:          em($font-size + 2); // 18px
+$font-size-h4:          em($font-size);
+$font-size-h5:          em($font-size);
+$font-size-h6:          em($font-size);
+
+$font-size-large:       em($font-size + 2); // 18px
+
+//* -----  Links  ----- */
+
+$link-color:            $brand-primary;
+$link-decoration:       none; // null
+$link-hover-color:      inherit;
+$link-hover-decoration: underline; // null
+
+//* -----  Forms  ----- */
+
+$button-padding:        em(12px) em(30px);
+$button-border:         2px solid; // [not color]
+$button-border-radius:  null; // null
+
+$text-border-radius:    null; // null
+$text-input-width:      100%; // null
+$text-input-padding:    8px; // null
+$label-inline:          false; // [true|false]

@@ -1,0 +1,116 @@
+
+// ----------------------------------------------
+//                Susy mixins
+// ----------------------------------------------
+//**    Shouldn't Edit - See includes/vars
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//* -----  Headings  ----- */
+
+@mixin headings(){
+  font-weight: $headings-font-weight;
+  font-family: $headings-font;
+  line-height: $line-height;
+  text-transform: uppercase;
+}
+
+@mixin font-smoothing($value: $font-smoothing) {
+  -webkit-font-smoothing: $font-smoothing;
+
+  @if $value == antialiased {
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+//* -----  Links  ----- */
+
+@mixin links(){
+  color: $link-color;
+  text-decoration: $link-decoration;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+//* -----  Forms  ----- */
+
+@mixin buttons() {
+  border: $button-border;
+  border-radius: $button-border-radius;
+  padding: $button-padding;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    text-decoration: none;
+    transition: all .1s ease;
+  }
+}
+
+@mixin button($btncolor) {
+  background: $btncolor;
+  border: none;
+  // if hover is dark use light text
+  @if lightness($btncolor) < 75% {
+    color: white;
+  } @else {
+    color: darken($btncolor, 60%);
+  }
+  &:hover {
+    color: darken($btncolor, 60%);
+  }
+}
+
+@mixin label-inline($value: $label-inline, $max: $text-input-width){
+  @if $value == true {
+    label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    label + input[type=text],
+    label + input[type=tel],
+    label + input[type=email],
+    label + input[type=password] {
+      width: 100%;
+      display: inline-block;
+      @if $max == null {
+        max-width: 500px;
+      } @else {
+        max-width: $max;
+      }
+    }
+  }
+}
+
+//* -----  Container  ------ */
+
+%container {
+  max-width: $container-size;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@mixin background-hover($color, $hover) {
+  background-color: $color;
+  transition: background .1s ease;
+
+  &:hover {
+    background-color: $hover;
+    transition: background .1s ease;
+  }
+}

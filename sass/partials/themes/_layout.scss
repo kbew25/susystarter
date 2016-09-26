@@ -1,0 +1,98 @@
+
+// ----------------------------------------------
+//          				Layout
+// ----------------------------------------------
+//**  Don't Edit - See layout/grid & utils/vars 
+
+//* -----  Layout Vars ----- */
+
+$total-medium: map-get($medium, columns); 
+$medium-sidebar-first: map-get($medium, sidebarfirst);
+$medium-sidebar-second: map-get($medium, sidebarsecond);
+
+$total-large: map-get($large, columns); 
+$large-gutters: map-get($large, gutters);
+$large-sidebar-first: map-get($large, sidebarfirst);
+$large-sidebar-second: map-get($large, sidebarsecond);
+
+
+
+//* -----  One Sidebar Enabled ----- */
+
+body.one-sidebar {
+
+	&.sidebar-first {
+		#sidebar-first {
+			@include susy-breakpoint($bp-medium $bp-large, $medium) {
+				@include span(first $medium-sidebar-first);
+			}
+			@include susy-breakpoint($bp-large, $large) {
+				@include span(first $large-sidebar-first);
+			}
+		}
+		#main {
+			@include susy-breakpoint($bp-medium $bp-large, $medium) {
+				$main: $total-medium - $medium-sidebar-first;
+				@include span(last $main);
+			}
+			@include susy-breakpoint($bp-large, $large) {
+				$main: $total-large - $large-sidebar-first;
+				@include span(last $main);
+			}
+		}
+	}
+
+	&.sidebar-second {
+		#sidebar-second {
+			@include susy-breakpoint($bp-medium $bp-large, $medium) {
+				@include span(last $medium-sidebar-second);
+			}
+			@include susy-breakpoint($bp-large, $large) {
+				@include span(last $large-sidebar-second);
+			}
+		}
+		#main {
+			@include susy-breakpoint($bp-medium $bp-large, $medium) {
+				$main: $total-medium - $medium-sidebar-second;
+				@include span($main);
+			}
+			@include susy-breakpoint($bp-large, $large) {
+				$main: $total-large - $large-sidebar-second;
+				@include span($main);
+			}
+		}
+	}
+}
+
+//* -----  Two Sidebars Enabled ----- */
+
+body.two-sidebars {
+
+	@include susy-breakpoint($bp-medium, $medium) {
+		#sidebar-first {
+			@include span(isolate $medium-sidebar-first at 1);
+		}
+		#main {
+			$sidebars: $total-medium - ($medium-sidebar-first + $medium-sidebar-second);
+			@include span(isolate $sidebars at $medium-sidebar-first + 1) ;
+		}
+		#sidebar-second {
+			@include span(isolate $medium-sidebar-second at $total-medium - $medium-sidebar-second + 1);
+			@include nobreak;
+		}
+	}
+
+	@include susy-breakpoint($bp-large, $large) {
+		#sidebar-first {
+			@include span(isolate $large-sidebar-first at 1);
+		}
+		#main {
+			$sidebars: $total-large - ($large-sidebar-first + $large-sidebar-second);
+			@include span(isolate $sidebars at $large-sidebar-first + 1) ;
+	  }
+		#sidebar-second {
+			@include span(isolate $large-sidebar-second at $total-large - $large-sidebar-second + 1);
+			@include nobreak;
+		}
+	}
+}

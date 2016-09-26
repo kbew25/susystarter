@@ -1,0 +1,282 @@
+
+// ----------------------------------------------
+//          Elements Default Styles
+// ----------------------------------------------
+//**     Shouldn't Edit - See utils/vars
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $base-font;
+}
+
+body, input, textarea {
+  @include font-smoothing();
+}
+
+:focus {
+  outline: dashed #ccc 1px;
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+%invisible {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+/* -----  Headings  ----- */
+
+%headings {
+  @include headings;
+}
+
+h1 {
+  @extend %headings;
+  font-size: $font-size-h1;
+  &.page-title:after {
+    content: "";
+    display: block;
+    width: 24px;
+    margin-top: 5px;
+    border-top: 2px solid;
+  }
+}
+
+h2 {
+  @extend %headings;
+  font-size: $font-size-h2;
+}
+
+h3 {
+  @extend %headings;
+  font-size: $font-size-h3;
+}
+
+h4 {
+  @extend %headings;
+  font-size: $font-size-h4;
+}
+
+h5 {
+  @extend %headings;
+  font-size: $font-size-h5;
+}
+
+h6 {
+  @extend %headings;
+  font-size: $font-size-h6;
+}
+
+/* -----  Links  ----- */
+
+a {
+  @include links();
+}
+
+/* -----  Images  ----- */
+
+img {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* -----  Lists  ----- */
+
+nav.breadcrumb {
+  li {
+    display: inline;
+  }
+}
+
+/* -----  Forms  ----- */
+
+%buttons {
+  @include buttons;
+  font-size: 18px;
+}
+
+@include susy-breakpoint(0 360px, $susy) {
+  %buttons {
+    @include buttons;
+    padding: 0.5em 0.9em;
+    border-width: 1px;
+    font-size: 16px;
+  }
+}
+
+%warning {
+  @include button($brand-warning);
+}
+%danger {
+  @include button($brand-danger);
+}
+
+button {
+  @extend %buttons;
+}
+
+[class^='btn'] {
+  @extend %buttons;
+  &[class*='-primary'] {
+    @include button($brand-info);
+  }
+  &[class*='-success'] {
+    @include button($brand-success);
+  }
+  &[class*='-warning'] {
+    @extend %warning;
+  }
+  &[class*='-danger'] {
+    @extend %danger;
+  }
+}
+
+[class^='button'] {
+  @extend %buttons;
+  &[class*='-warning'] {
+    @extend %warning;
+  }
+  &[class*='-danger'] {
+    @extend %danger;
+  }
+}
+
+.dropbutton-multiple .dropbutton .dropbutton-action > * {
+  margin: 0;
+  padding: $button-padding;
+  border-radius: 0;
+}
+
+label,
+input,
+fieldset {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+input + label {
+  display: inline-block;
+}
+
+.form-item {
+  @include label-inline;
+}
+
+.description {
+  color: $gray;
+  margin-bottom: 10px;
+  font-size: 80%;
+}
+
+input[type=submit] {
+  @extend %buttons;
+  @include button($brand-success);
+}
+
+[id^=edit-cancel] {
+  @extend %buttons;
+  @extend %danger;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+%text-input {
+  display: block;
+  width: 100%;
+  max-width: $text-input-width;
+  padding: $text-input-padding;
+  border: 1px solid $gray-lighter;
+  border-radius: $text-border-radius;
+}
+
+input[type=text] {
+  @extend %text-input;
+}
+
+input.form-tel {
+  @extend %text-input;
+}
+
+input[type=email] {
+  @extend %text-input;
+}
+
+input[type=password] {
+  @extend %text-input;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="search"] {
+  box-sizing: border-box;
+  padding: $button-padding;
+  padding-left: em(5px);
+  padding-right: em(5px);
+  border: 1px solid $gray-lighter;
+  border-radius: $text-border-radius;
+}
+
+details {
+  summary {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  > div {
+    padding: 10px;
+  }
+}
+
+details[open] {
+  > div {
+    border-top: 1px solid #f3f3f3;
+  }
+}
+
+/* -----  Tables  ----- */
+
+table {
+  background: #e3e3e3;
+  width: 100%;
+  .odd {
+    background: #f3f3f3;
+  }
+  thead {
+    border-bottom: 2px solid white;
+  }
+  td, th {
+    padding: 10px;
+  }
+}
+
+/* -----  Layout - Sections ----- */
+
+.layout-container {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin: 0;
+}
+
+.layout-main {
+  clear: both;
+}
+
+.system-modules details {
+ white-space: normal;  
+}

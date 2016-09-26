@@ -1,8 +1,45 @@
-/**
-*  main.scss
-*/
+// ----------------------------------------------
+//              Main Stylesheet
+// ----------------------------------------------
 
 @import "susy";
 
-@import "utils/reset";
-@import "layout/grid";
+// ---- Layout & Grid settings ----------------------
+//  This uses Susy as the layout system.
+//  Full Susy docs can be found at:
+//  http://susydocs.oddbird.net/
+// --------------------------------------------------
+
+//* ----- Partials - ( Theme ) ----- */
+
+// 1 ( Defines element styles )
+@import "partials/utils/vars";
+
+// 2 ( Theme's default mixins )
+@import "partials/themes/mixins";
+
+// 3 ( Defines grid layout )
+@import "partials/layout/grid";
+
+// 4 ( Theme's default from vars )
+@import "partials/themes/defaults";
+
+// 5 ( Theme's default layout )
+@import "partials/themes/layout";
+
+
+//* ----- Partials - ( Custom ) ----- */
+
+/* -- Default Styles -- */
+@import "partials/utils/global";
+
+
+/* -- Header -- */
+@import "partials/layout/header";
+
+/* -- Footer -- */
+@import "partials/layout/footer";
+
+
+/* -- Homepage -- */
+// @import "partials/pages/front";
