@@ -40,27 +40,27 @@ $brand-danger:          #e62600; // red
 $black:                 #000;
 $gray-dark:             lighten($black, 20); // #333
 $gray:                  lighten($black, 40); // #666
-$gray-light:            #e4e4e6;
+$gray-light:            lighten($black, 60); // #999
 $gray-lighter:          lighten($black, 80); // #ccc
 
 //* -----  Typography  ----- */
 
 $font-sans:             sans-serif;
 $font-serif:            serif;
-$font-weight:           300; // null
+$font-weight:           null; // null
 
 $base-font:             $font-sans; // null
-$headings-font:         sans-serif; // null
-$headings-font-weight:  500; // null
+$headings-font:         $font-sans; // null
+$headings-font-weight:  null; // null
 
 $line-height:           1.2; // null
 $font-smoothing:        auto; // [antialiased|auto|none|subpixel-antialiased]
 
-$font-size-h1:          em($font-size + 6); // 22px
-$font-size-h2:          em($font-size + 4); // 20px
-$font-size-h3:          em($font-size + 2); // 18px
-$font-size-h4:          em($font-size);
-$font-size-h5:          em($font-size);
+$font-size-h1:          em($font-size + 10); // 22px
+$font-size-h2:          em($font-size + 8); // 20px
+$font-size-h3:          em($font-size + 6); // 18px
+$font-size-h4:          em($font-size + 4);
+$font-size-h5:          em($font-size + 2);
 $font-size-h6:          em($font-size);
 
 $font-size-large:       em($font-size + 2); // 18px

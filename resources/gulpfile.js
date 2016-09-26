@@ -7,9 +7,9 @@ uglify = require('gulp-uglify'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 notify = require('gulp-notify'),
-livereload = require('gulp-livereload'),
 plumber = require('gulp-plumber'),
-path = require('path');
+path = require('path'),
+browserSync = require('browser-sync').create();
 
 //the title and icon that will be used for the Grunt notifications
 var notifyInfo = {
@@ -26,6 +26,14 @@ var plumberErrorHandler = {
   })
 };
 
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: ''
+    },
+  })
+})
+
 //styles
 gulp.task('styles',function() {
   return gulp.src(['sass/*.scss'])
@@ -39,7 +47,9 @@ gulp.task('styles',function() {
   .pipe(cleanCSS())
   .pipe(gulp.dest('stylesheets'))
   //.pipe(rename({ suffix: '.min' }))
-  .pipe(livereload());
+  .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
 //scripts
@@ -53,8 +63,7 @@ gulp.task('scripts',function() {
 });
 
 //watch
-gulp.task('watch',['styles','scripts'],function(){
-  livereload.listen();
+gulp.task('watch',['browserSync', 'styles', 'scripts'],function(){
   gulp.watch('sass/*.scss',['styles']);
   gulp.watch('sass/**/*.scss',['styles']);
   //gulp.watch('js/*.js',['scripts']);

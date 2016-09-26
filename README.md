@@ -20,4 +20,4 @@ If using gulp:
 
 (optional)
 - Move resources/gulpfile.js to root and delete directory
-- <pre>npm install gulp gulp-compass gulp-autoprefixer gulp-clean-css gulp-uglify gulp-rename gulp-concat gulp-notify gulp-livereload gulp-plumber --save-dev</pre>
+- <pre>npm install gulp gulp-compass gulp-autoprefixer gulp-clean-css gulp-uglify gulp-rename gulp-concat gulp-notify browser-sync gulp-plumber --save-dev</pre>
