@@ -9,26 +9,23 @@
 
 // Default
 $susy: (
-  columns: 12,
-  gutters: 0,
-  flow: ltr,
-  global-box-sizing: border-box,
+  columns: 4,
+  gutters: 10/65,
   container: $container-size, // change in vars
 );
 
 // Above $bp-medium breakpoint
 $medium: (
   columns: 12,
-  gutters: .8,
-  sidebarfirst: 1, // in columns if not using custom layouts
+  gutters: 10/52,
+  sidebarfirst: 3, // in columns if not using custom layouts
   sidebarsecond: 4, // in columns if not using custom layouts
 );
 
 // Above $bp-large breakpoint
 $large: (
-  flow: ltr,
   columns: 12,
-  gutters: 1,
+  gutters: 20/63,
   sidebarfirst: 3, // in columns if not using custom layouts
   sidebarsecond: 4, // in columns if not using custom layouts
 );
@@ -36,4 +33,12 @@ $large: (
 #page {
   @include container;
   clear: both;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @include susy-breakpoint($bp-large, $large) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
