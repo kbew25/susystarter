@@ -41,4 +41,8 @@ $large: (
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  @media screen and (min-width: $bp-xlarge) {
+    max-width: $bp-xlarge - 100;
+  }
 }

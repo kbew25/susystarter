@@ -85,13 +85,26 @@
   }
 }
 
-@include susy-breakpoint($bp-medium, $large) {
+@include susy-breakpoint($bp-small, $medium) {
   .grid-2 .grid-item {
     @include span(6);
     &:nth-child(even) {
       @include span(6 last);
     }
   }
+}
+
+@include susy-breakpoint($bp-small $bp-medium - 1, $medium) {
+  .grid-3 .grid-item,
+  .grid-4 .grid-item {
+    @include span(6);
+    &:nth-child(even) {
+      @include span(6 last);
+    }
+  }
+}
+
+@include susy-breakpoint($bp-medium, $large) {
   .grid-3 .grid-item {
     @include span(4);
     &:nth-child(3n + 3) {
