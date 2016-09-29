@@ -80,10 +80,10 @@
       display: inline-block;
       margin-right: 10px;
     }
-    label + input[type=text],
-    label + input[type=tel],
-    label + input[type=email],
-    label + input[type=password] {
+    label + input[type='text'],
+    label + input[type='tel'],
+    label + input[type='email'],
+    label + input[type='password'] {
       width: 100%;
       display: inline-block;
       @if $max == null {

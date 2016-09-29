@@ -1,4 +1,3 @@
-
 // ----------------------------------------------
 //          Elements Default Styles
 // ----------------------------------------------
@@ -9,9 +8,9 @@
 }
 
 body {
+  font-family: $base-font;
   font-size: $font-size;
   line-height: $line-height;
-  font-family: $base-font;
 }
 
 body, input, textarea {
@@ -24,10 +23,10 @@ body, input, textarea {
 
 %invisible {
   position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
   overflow: hidden;
-  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
   width: 1px;
+  height: 1px;
   word-wrap: normal;
 }
 
@@ -115,7 +114,7 @@ button {
   @extend %buttons;
 }
 
-[class^='btn'] {
+[class*='btn'] {
   @extend %buttons;
   &[class*='-primary'] {
     @include button($brand-info);
@@ -123,16 +122,6 @@ button {
   &[class*='-success'] {
     @include button($brand-success);
   }
-  &[class*='-warning'] {
-    @extend %warning;
-  }
-  &[class*='-danger'] {
-    @extend %danger;
-  }
-}
-
-[class^='button'] {
-  @extend %buttons;
   &[class*='-warning'] {
     @extend %warning;
   }
@@ -165,12 +154,12 @@ input + label {
   font-size: 80%;
 }
 
-input[type=submit] {
+input[type='submit'] {
   @extend %buttons;
   @include button($brand-success);
 }
 
-[id^=edit-cancel] {
+[id*='edit-cancel'] {
   @extend %buttons;
   @extend %danger;
   margin-left: 10px;
@@ -195,23 +184,23 @@ input.form-tel {
   @extend %text-input;
 }
 
-input[type=email] {
+input[type='email'] {
   @extend %text-input;
 }
 
-input[type=password] {
+input[type='password'] {
   @extend %text-input;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type='checkbox'], input[type='radio'] {
   margin-right: 10px;
 }
 
 input[type="search"] {
   box-sizing: border-box;
   padding: $button-padding;
-  padding-left: em(5px);
   padding-right: em(5px);
+  padding-left: em(5px);
   border: 1px solid $gray-lighter;
   border-radius: $text-border-radius;
   font-size: $font-size;
@@ -237,23 +226,4 @@ details[open] {
 
 table {
   width: 100%;
-  thead {
-    border-bottom: 2px solid white;
-  }
-  td, th {
-    padding: 10px;
-  }
-}
-
-/* -----  Layout - Sections ----- */
-
-.layout-container {
-  float: left;
-  clear: both;
-  width: 100%;
-  margin: 0;
-}
-
-.layout-main {
-  clear: both;
 }
