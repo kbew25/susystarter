@@ -46,10 +46,9 @@ gulp.task('styles',function() {
   .pipe(autoprefixer('last 2 version','safari 5','ie 7','ie 8','ie 9','opera 12.1','ios 6','android 4'))
   .pipe(cleanCSS())
   .pipe(gulp.dest('stylesheets'))
-  //.pipe(rename({ suffix: '.min' }))
   .pipe(browserSync.reload({
-      stream: true
-    }));
+    stream: true
+  }));
 });
 
 //scripts
@@ -57,8 +56,8 @@ gulp.task('scripts',function() {
   return gulp.src('js/*.js')
   .pipe(plumber(plumberErrorHandler))
   .pipe(concat('main.js'))
-  //.pipe(rename({ suffix: '.min' }))
-  //.pipe(uglify())
+  .pipe(uglify())
+  .pipe(rename({ suffix: '.min' }))
   .pipe(gulp.dest('js'));
 });
 
@@ -66,5 +65,5 @@ gulp.task('scripts',function() {
 gulp.task('watch',['browserSync', 'styles', 'scripts'],function(){
   gulp.watch('sass/*.scss',['styles']);
   gulp.watch('sass/**/*.scss',['styles']);
-  //gulp.watch('js/*.js',['scripts']);
+  gulp.watch('js/*.js',['scripts']);
 });
